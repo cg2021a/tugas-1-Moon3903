@@ -1,6 +1,7 @@
 # Tugas-1-grafkom-A
 Zulfiqar Fauzul Akbar <br>
-05111940000101
+05111940000101 <br>
+benda : Kardus
 ## tampak depan atas
 ![339881](https://user-images.githubusercontent.com/62832487/134147790-775e60e1-de3e-4ce0-9391-d08c65952ac3.jpg)
 
