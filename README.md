@@ -2,6 +2,11 @@
 Zulfiqar Fauzul Akbar <br>
 05111940000101 <br>
 benda : Kardus
+
+## Hasil tugas
+menggunakan belakang atas dan kanan atas
+![image](https://user-images.githubusercontent.com/62832487/136010335-e38b441e-1096-49e4-9101-17fa06140fa0.png)
+
 ## tampak depan atas
 ![339881](https://user-images.githubusercontent.com/62832487/134147790-775e60e1-de3e-4ce0-9391-d08c65952ac3.jpg)
 
