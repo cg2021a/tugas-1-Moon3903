@@ -9,6 +9,8 @@ camera.position.z = 5;
 
 const clock = new THREE.Clock();
 
+const selectElement = document.querySelector('.lighting-select');
+
 // cube
 const geometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
 const material = new THREE.MeshDepthMaterial();
@@ -56,7 +58,7 @@ scene.add( cylinder );
 
 //Dodecahedron
 const dodecahedronGeometry = new THREE.DodecahedronGeometry(0.5);
-const dodecahedronMaterial = new THREE.MeshNormalMaterial( {color: 0xffff00} );
+const dodecahedronMaterial = new THREE.MeshNormalMaterial();
 const dodecahedron = new THREE.Mesh( dodecahedronGeometry, dodecahedronMaterial );
 dodecahedron.position.x += 1.6;
 dodecahedron.position.y += 0.8;
@@ -84,7 +86,20 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 //light
 const ambient = new THREE.AmbientLight( 0x404040 ); 
-scene.add(ambient);
+const directional = new THREE.DirectionalLight( 0xffffff, 0.5 );
+const hemisphere = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 );
+const point = new THREE.PointLight( 0xff0000, 1, 100 );
+point.position.set( 50, 50, 50 );
+const spotLight = new THREE.SpotLight( 0xffffff );
+spotLight.position.set( 100, 1000, 100 );
+
+const lights = [ambient,directional,hemisphere,point,spotLight];
+
+lights.forEach((light) => {
+    scene.add(light);
+    light.visible = false;
+});
+lights[0].visible = true;
 
 function rotate(obj,time,modifier){
     obj.rotation.x = modifier * time;
@@ -106,5 +121,14 @@ let mainLoop = function () {
     renderer.render(scene, camera);
     requestAnimationFrame(mainLoop);
 };
+
+selectElement.addEventListener('change', (event) => {
+    console.log(event.target.value);
+    lights.forEach((light) => {
+        light.visible = false;
+    });
+    let num = parseInt(event.target.value);
+    lights[num].visible = true;
+});
 
 mainLoop();
